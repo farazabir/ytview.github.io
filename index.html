@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>YouTube Views Generator</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Generate Views for Your YouTube Video</h2>
+		<form>
+			<div class="form-group">
+				<h4 for="videoLink">Enter the Embedded Link of Your YouTube Video:</h3>
+				<input type="text" class="form-control form-control-lg" id="videoLink" placeholder="Enter the Embedded Link">
+			</div>
+			<div class="form-group">
+				<h4 for="viewsNumber">Enter the Number of Views You Want:</h4>
+				<input type="number" class="form-control form-control-lg" id="viewsNumber" placeholder="Enter the Number of Views">
+			</div>
+			<button type="button" class="btn btn-primary" onclick="generateViews()">Generate Views</button>
+		</form>
+	</div>
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script>
+		function generateViews() {
+  // Get the embedded link of the video from the input field
+  var videoLink = document.getElementById("videoLink").value;
+  
+  // Get the number of views from the input field
+  var viewsNumber = document.getElementById("viewsNumber").value;
+
+  // Generate the embedded views using a loop
+  for (var i = 1; i <= viewsNumber; i++) {
+    // Create an iframe element with the embedded link and additional parameters
+    var iframe = document.createElement("iframe");
+    iframe.setAttribute("src", videoLink + "?autoplay=1&loop=1&rel=0&mute=1");
+    iframe.setAttribute("frameborder", "0");
+    iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+    iframe.setAttribute("allowfullscreen", "");
+
+    // Append the iframe to the page
+    document.body.appendChild(iframe);
+  }
+}
+
+	</script>
+</body>
+</html>
